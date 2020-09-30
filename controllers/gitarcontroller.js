@@ -9,8 +9,8 @@ module.exports = {
             const alert = { message: alertMessage, status: alertStatus };
 
             res.render("index", {
-                gitar,
-                alert,
+                gitar: gitar,
+                alert: alert,
                 title: "CURD",
             });
         } catch (error) {
