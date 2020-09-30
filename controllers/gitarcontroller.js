@@ -11,7 +11,7 @@ module.exports = {
             res.render("index", {
                 gitar: gitar,
                 alert: alert,
-                title: "CURD",
+                title: "CRUD",
             });
         } catch (error) {
             res.redirect("/gitar");
@@ -44,6 +44,37 @@ module.exports = {
             req.flash("alertMessage", `${error.message}`);
             req.flash("alertStatus", "danger!");
             res.redirect("/gitar");
+        }
+    },
+    editGitar: async(req, res) => {
+        try {
+            const {
+                id_gitar,
+                merk,
+                jeniskayu,
+                fret,
+                seri,
+                deskripsi,
+                foto,
+            } = req.body;
+            const gitar = await Gitar.findOne({ _Merk: merk });
+            gitar.id_gitar = id_gitar;
+            gitar.merk = merk;
+            gitar.jeniskayu = jeniskayu;
+            gitar.fret = fret;
+            gitar.seri = seri;
+            gitar.deskripsi = deskripsi;
+            gitar.foto = foto;
+
+            await gitar.save();
+
+            req.flash("alertMessage", "Succes edit data Gitar");
+            req.flash("alertStatus", "Succes");
+            res.redirect("/gitar");
+        } catch (error) {
+            req.flash("alertMessage", `${error.message}`);
+            req.flash("alertStatus", "danger!");
+            req.flas("/gitar");
         }
     },
 };

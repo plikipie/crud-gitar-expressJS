@@ -11,6 +11,8 @@ const session = require("express-session");
 // Connect DB ke mongoose
 const mongoose = require("mongoose");
 
+const methodOverride = require("method-override");
+
 mongoose.connect("mongodb://localhost:27017/db_gitar", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -28,6 +30,9 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+// menggunakan method-override
+app.use(methodOverride("_method"));
 
 // menggunakan session
 app.use(

@@ -45,9 +45,8 @@
                                 <%= gitar[i].foto%>
                             </td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-outline-warning btn-sm button-update">
-                Edit
-              </a>
+                                <a href="javascript:void()" class="btn btn-outline-warning btn-sm button-update" data-id="<%= gitar[i].id_gitar%>" data-merk="<%= gitar[i].merk%>" data-jeniskayu="<%= gitar[i].jeniskayu%>" data-fret="<%= gitar[i].fret%>" data-seri="<%= gitar[i].seri%>"
+                                    data-deskripsi="<%= gitar[i].deskripsi%>" data-foto="<%= gitar[i].foto%>">Edit</a>
                                 <button type="submit" class="btn btn-outline-danger btn-sm">
                  Delete
               </button>
