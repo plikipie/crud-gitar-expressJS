@@ -57,7 +57,7 @@ module.exports = {
                 deskripsi,
                 foto,
             } = req.body;
-            const gitar = await Gitar.findOne({ _Merk: merk });
+            const gitar = await Gitar.findOne({ _id_gitar: id_gitar });
             gitar.id_gitar = id_gitar;
             gitar.merk = merk;
             gitar.jeniskayu = jeniskayu;
