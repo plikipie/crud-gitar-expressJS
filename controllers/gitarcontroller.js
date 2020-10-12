@@ -77,4 +77,20 @@ module.exports = {
       req.flash("/gitar");
     }
   },
+  deleteGitar: async (res, req) => {
+    try {
+      const { id_gitar } = req.params;
+
+      const gitar = await Gitar.findOne({ _id_gitar: id_gitar });
+      await gitar.remove();
+
+      req.flash("alertMessage", "Succes Delete Gitar");
+      req.flash("alertStatus", "Succes");
+      res.redirect("/gitar");
+    } catch {
+      req.flash("alertMessage", `${error.message}`);
+      req.flash("alertStatus", "danger");
+      req.flash("/gitar");
+    }
+  },
 };
