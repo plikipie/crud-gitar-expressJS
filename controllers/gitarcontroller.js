@@ -42,7 +42,7 @@ module.exports = {
       res.redirect("/gitar");
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
-      req.flash("alertStatus", "danger!");
+      req.flash("alertStatus", "danger");
       res.redirect("/gitar");
     }
   },
@@ -73,8 +73,8 @@ module.exports = {
       res.redirect("/gitar");
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
-      req.flash("alertStatus", "danger!");
-      req.flas("/gitar");
+      req.flash("alertStatus", "danger");
+      req.flash("/gitar");
     }
   },
 };
